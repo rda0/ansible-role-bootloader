@@ -1,0 +1,8 @@
+{% set bootloader_grub_kernel_parameters = bootloader_grub_kernel_parameters_generic + bootloader_kernel_parameters_console + bootloader_kernel_parameters_custom + bootloader_kernel_parameters_hugepages -%}
+GRUB_DEFAULT={{ bootloader_grub_default }}
+GRUB_TIMEOUT={{ bootloader_grub_timeout }}
+GRUB_DISTRIBUTOR={{ bootloader_grub_distributor }}
+GRUB_CMDLINE_LINUX_DEFAULT="{{ bootloader_grub_cmdline_linux_default }}"
+GRUB_CMDLINE_LINUX="{{ bootloader_grub_kernel_parameters | join(" ") }}"
+GRUB_TERMINAL="{{ bootloader_grub_terminal }}"
+GRUB_SERIAL_COMMAND="{{ bootloader_grub_serial_command }}"

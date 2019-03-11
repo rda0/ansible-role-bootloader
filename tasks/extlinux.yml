@@ -1,0 +1,5 @@
+- name: deploy extlinux (syslinux) config
+  template:
+    src: syslinux.cfg.j2
+    dest: /syslinux.cfg
+    mode: 0644

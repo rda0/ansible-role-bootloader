@@ -1,0 +1,33 @@
+include_bootloader_grub: True
+include_bootloader_extlinux: True
+
+bootloader_serial_console: True
+bootloader_serial_console_speed: '115200'
+bootloader_serial_console_parameter: 'console=ttyS0,{{ bootloader_serial_console_speed }}n8'
+bootloader_serial_command: '{{ "".join(["serial --unit=0 --speed=", bootloader_serial_console_speed, " --word=8 --parity=no --stop=1"]) if bootloader_serial_console else "" }}'
+
+bootloader_kernel_parameters_console: '{{ [ "console=tty0", bootloader_serial_console_parameter ] if bootloader_serial_console else [] }}'
+bootloader_kernel_parameters_hugepages: []
+bootloader_kernel_parameters_custom: []
+
+bootloader_grub_kernel_parameters_generic:
+  - 'lvmwait=/dev/vg0/root'
+
+bootloader_extlinux_kernel_parameters_generic:
+  - 'root=/dev/sda'
+  - 'ro'
+  - 'net.ifnames=0'
+  - 'biosdevname=0'
+  - 'nousb'
+
+# --- /etc/default/grub
+bootloader_grub_default: 0
+bootloader_grub_timeout: 5
+bootloader_grub_distributor: '`lsb_release -i -s 2> /dev/null || echo Debian`'
+bootloader_grub_cmdline_linux_default: ''
+bootloader_grub_terminal: '{{ "serial" if bootloader_serial_console else "" }}'
+bootloader_grub_serial_command: '{{ bootloader_serial_command }}'
+
+# --- /syslinux.cfg
+bootloader_extlinux_linux: 'vmlinuz'
+bootloader_extlinux_initrd: 'initrd.img'

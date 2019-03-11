@@ -1,0 +1,9 @@
+{% set bootloader_extlinux_kernel_parameters = bootloader_extlinux_kernel_parameters_generic + bootloader_kernel_parameters_console + bootloader_kernel_parameters_custom -%}
+PROMPT 0
+TIMEOUT 0
+DEFAULT linux
+
+LABEL linux
+    LINUX {{ bootloader_extlinux_linux }}
+    APPEND {{ bootloader_extlinux_kernel_parameters | join(" ") }}
+    INITRD {{ bootloader_extlinux_initrd }}
