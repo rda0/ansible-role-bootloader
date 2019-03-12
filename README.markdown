@@ -8,12 +8,6 @@ The following bootloaders are supported:
 - `grub2`
 - `extlinux` (syslinux)
 
-Note: This role tries to solve a complex problem. A common configuration suitable for most hosts via `role/defaults`, without the need of specifiyng any inventory configuration. Possiblility to add custom host/group based inventory parameters. And the possibility to specify variables from other roles that need to supply kernel boot parameters.
-
-TODO:
-
-- workstation setup (hidden grub, grub password)
-
 custom host/group based inventory parameters
 --------------------------------------------
 
