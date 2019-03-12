@@ -25,7 +25,7 @@ bootloader_grub_default: 0
 bootloader_grub_timeout: 5
 bootloader_grub_distributor: '`lsb_release -i -s 2> /dev/null || echo Debian`'
 bootloader_grub_cmdline_linux_default: ''
-bootloader_grub_terminal: '{{ "serial" if bootloader_serial_console else "" }}'
+bootloader_grub_terminal: '{{ "console serial" if bootloader_serial_console else "" }}'
 bootloader_grub_serial_command: '{{ bootloader_serial_command }}'
 
 # --- /syslinux.cfg
