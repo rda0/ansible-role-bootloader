@@ -25,7 +25,7 @@ bootloader_grub_default: 0
 bootloader_grub_timeout: 5
 bootloader_grub_timeout_style_hidden: False
 bootloader_grub_distributor: '`lsb_release -i -s 2> /dev/null || echo Debian`'
-bootloader_grub_cmdline_linux_default: ''
+bootloader_grub_cmdline_linux_default: 'quiet'
 bootloader_grub_terminal: '{{ "console serial" if bootloader_serial_console else "console" }}'
 bootloader_grub_serial_command: '{{ bootloader_serial_command }}'
 bootloader_grub_disable_submenu: True
