@@ -4,7 +4,7 @@ include_bootloader_extlinux: True
 bootloader_serial_console: True
 bootloader_serial_console_speed: '115200'
 bootloader_serial_console_parameter: 'console=ttyS0,{{ bootloader_serial_console_speed }}n8'
-bootloader_serial_command: '{{ "".join(["serial --unit=0 --speed=", bootloader_serial_console_speed, " --word=8 --parity=no --stop=1"]) if bootloader_serial_console else "" }}'
+bootloader_serial_command: '{{ "".join(["serial --speed=", bootloader_serial_console_speed, " --unit=0 --word=8 --parity=no --stop=1"]) if bootloader_serial_console else "" }}'
 
 bootloader_kernel_parameters_console: '{{ [ "console=tty0", bootloader_serial_console_parameter ] if bootloader_serial_console else [] }}'
 bootloader_kernel_parameters_hugepages: []
