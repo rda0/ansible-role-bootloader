@@ -10,8 +10,7 @@ bootloader_kernel_parameters_console: '{{ [ "console=tty0", bootloader_serial_co
 bootloader_kernel_parameters_hugepages: []
 bootloader_kernel_parameters_custom: []
 
-bootloader_grub_kernel_parameters_generic:
-  - 'lvmwait=/dev/vg0/root'
+bootloader_grub_kernel_parameters_generic: []
 
 bootloader_extlinux_kernel_parameters_generic:
   - 'root=/dev/sda'
