@@ -52,6 +52,10 @@ wifi-observer
 
 ### workstations
 
+excluded:
+
+- dumbledore
+
 unreachable:
 
 - amun
