@@ -41,7 +41,18 @@ All KVM virtual machines (except some exceptions) are using the `extlinux` bootl
 todo
 ----
 
+### production
+
+unreachable:
+
+phd-san06
+phd-san09
+spaceml4
+wifi-observer
+
 ### workstations
+
+unreachable:
 
 - amun
 - astrodt3-rsg
@@ -51,6 +62,7 @@ todo
 - hagrid
 - hapimou
 - heka
+- lumos
 - nefertem
 - nut
 - peking
