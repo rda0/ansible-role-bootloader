@@ -39,6 +39,7 @@ bootloader_grub_terminal: '{{ "console serial" if bootloader_serial_console else
 bootloader_grub_serial_command: '{{ bootloader_serial_command }}'
 bootloader_grub_disable_submenu: True
 bootloader_grub_disable_os_prober: True
+bootloader_grub_disable_recovery: False
 bootloader_grub_password_protected: False
 
 # --- /syslinux.cfg

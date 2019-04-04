@@ -5,6 +5,20 @@
     mode: 0644
   notify: update grub
 
+- name: temporary fix /etc/grub.d/10_linux
+  template:
+    src: 10_linux_temporary_fix_bionic
+    dest: /etc/grub.d/10_linux
+    mode: '0755'
+  when: bootloader_grub_password_protected and ansible_distribution_release == 'bionic'
+
+- name: make grub entries unrestricted
+  lineinfile:
+    path: /etc/grub.d/10_linux
+    regexp: '^CLASS='
+    line: 'CLASS="--class gnu-linux --class gnu --class os --unrestricted"'
+  when: bootloader_grub_password_protected and ansible_distribution_release != 'xenial'
+
 - name: deploy grub password
   template:
     src: 50_password.j2

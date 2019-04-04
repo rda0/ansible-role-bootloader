@@ -11,3 +11,4 @@ GRUB_SERIAL_COMMAND="{{ bootloader_grub_serial_command }}"
 {% endif %}
 GRUB_DISABLE_SUBMENU="{{ bootloader_grub_disable_submenu | ternary("y", "n") }}"
 GRUB_DISABLE_OS_PROBER="{{ bootloader_grub_disable_os_prober | ternary("true", "false") }}"
+GRUB_DISABLE_RECOVERY="{{ bootloader_grub_disable_recovery | ternary("true", "false") }}"
