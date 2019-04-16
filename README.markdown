@@ -41,38 +41,4 @@ All KVM virtual machines (except some exceptions) are using the `extlinux` bootl
 todo
 ----
 
-### production
-
-unreachable:
-
-phd-san06
-phd-san09
-spaceml4
-wifi-observer
-
-### workstations
-
-excluded:
-
-- dumbledore
-
-unreachable:
-
-- amun
-- astrodt3-rsg
-- corredor
-- galadriel
-- gringotts
-- hagrid
-- hapimou
-- heka
-- lumos
-- nefertem
-- nut
-- peking
-- pf-pc12
-- pf-pc16
-- pf-pc34
-- pince
-- portus3
-- sarapis
+- remove temporary workaround for bionic (`10_linux`)
