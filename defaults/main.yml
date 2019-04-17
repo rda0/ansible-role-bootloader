@@ -1,3 +1,4 @@
+role_bootloader: True
 include_bootloader_grub: True
 include_bootloader_extlinux: True
 

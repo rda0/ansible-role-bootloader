@@ -29,3 +29,4 @@
     when: include_bootloader_extlinux
 
   tags: bootloader
+  when: role_bootloader
