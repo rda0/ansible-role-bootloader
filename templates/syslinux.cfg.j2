@@ -1,4 +1,4 @@
-{% set bootloader_extlinux_kernel_parameters = bootloader_extlinux_kernel_parameters_generic + bootloader_kernel_parameters_console + bootloader_kernel_parameters_custom -%}
+{% set bootloader_extlinux_kernel_parameters = bootloader_extlinux_kernel_parameters_generic + bootloader_kernel_parameters_console + bootloader_kernel_parameters_custom + bootloader_kernel_parameters_mitigations -%}
 PROMPT 0
 TIMEOUT 0
 DEFAULT linux

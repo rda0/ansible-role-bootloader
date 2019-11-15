@@ -31,6 +31,9 @@ bootloader_extlinux_kernel_parameters_generic:
   - 'biosdevname=0'
   - 'nousb'
 
+# kernel parameters for mitigation control
+bootloader_kernel_parameters_mitigations: []
+
 # --- /etc/default/grub
 bootloader_grub_default: 0
 bootloader_grub_timeout: 5
