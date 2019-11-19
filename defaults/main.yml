@@ -32,7 +32,18 @@ bootloader_extlinux_kernel_parameters_generic:
   - 'nousb'
 
 # kernel parameters for mitigation control
+# (extra variable that should contain all parameters to control vulnerabilities)
+# kernel default (HT enabled):                                  ['mitigations=auto']
+# untrusted userspace (HT disabled):                            ['mitigations=auto,nosmt']
+# kvm hypervisors (trusted guest, untrusted guest userspace):   ['mitigations=auto,nosmt', 'kvm.nx_huge_pages=off']
+# trusted userspace:                                            ['mitigations=off']
 bootloader_kernel_parameters_mitigations: []
+
+# xen hypervisor kernel parameters
+# trusted guest, untrusted guest userspace:                     ['smt=0']
+# vulnerable to XSA-305 (TAA):                                  ['smt=0', 'spec-ctrl=md-clear']
+bootloader_xen_kernel_parameters_custom: []
+
 
 # --- /etc/default/grub
 bootloader_grub_default: 0
