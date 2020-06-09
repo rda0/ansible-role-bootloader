@@ -59,5 +59,7 @@ bootloader_grub_disable_recovery: False
 bootloader_grub_password_protected: False
 
 # --- /syslinux.cfg
-bootloader_extlinux_linux: 'vmlinuz'
-bootloader_extlinux_initrd: 'initrd.img'
+bootloader_extlinux_symlink_in_boot_releases: ['focal']
+bootloader_extlinux_path: '{{ "boot/" if ansible_distribution_release in bootloader_extlinux_symlink_in_boot_releases else "" }}'
+bootloader_extlinux_linux: '{{ bootloader_extlinux_path }}vmlinuz'
+bootloader_extlinux_initrd: '{{ bootloader_extlinux_path }}initrd.img'
