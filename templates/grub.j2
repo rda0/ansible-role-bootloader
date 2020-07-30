@@ -6,7 +6,7 @@ GRUB_DISTRIBUTOR={{ bootloader_grub_distributor }}
 GRUB_CMDLINE_LINUX_DEFAULT="{{ bootloader_grub_cmdline_linux_default }}"
 GRUB_CMDLINE_LINUX="{{ bootloader_grub_kernel_parameters | join(" ") }}"
 {% if bootloader_xen_kernel_parameters_custom %}
-GRUB_CMDLINE_XEN="{{ bootloader_xen_kernel_parameters_custom | join(" ") }}"
+GRUB_CMDLINE_XEN_DEFAULT="{{ bootloader_xen_kernel_parameters_custom | join(" ") }}"
 {% endif %}
 GRUB_TERMINAL="{{ bootloader_grub_terminal }}"
 {% if bootloader_serial_console %}
