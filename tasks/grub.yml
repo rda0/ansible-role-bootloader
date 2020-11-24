@@ -25,6 +25,7 @@
     dest: /etc/grub.d/50_password
     mode: 0700
   notify: update grub
+  no_log: True
   when: bootloader_grub_password_protected
 
 - name: remove grub password
