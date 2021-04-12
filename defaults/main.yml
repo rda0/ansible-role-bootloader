@@ -23,9 +23,12 @@ bootloader_kernel_parameters_custom: []
 # generic grub kernel parameters (the default parameters)
 bootloader_grub_kernel_parameters_generic: []
 
+# default: s (scsi), some vm configs need: v
+bootloader_extlinux_kernel_parameters_disk_bus_id: s
+
 # generic extlinux kernel parameters (the default parameters)
 bootloader_extlinux_kernel_parameters_generic:
-  - 'root=/dev/sda'
+  - 'root=/dev/{{ bootloader_extlinux_kernel_parameters_disk_bus_id }}da'
   - 'ro'
   - 'net.ifnames=0'
   - 'biosdevname=0'
