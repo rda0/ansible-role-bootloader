@@ -6,13 +6,14 @@ include_bootloader_extlinux: True
 bootloader_serial_console: True
 
 # serial console parameters
-bootloader_serial_console_tty: 'ttyS0'
+bootloader_serial_console_tty_num: '0'
+bootloader_serial_console_tty: 'ttyS{{ bootloader_serial_console_tty_num }}'
 bootloader_serial_console_speed: '115200'
 
 # serial console parameters (these should not be modified in the inventory)
 bootloader_serial_console_parameter: 'console={{ bootloader_serial_console_tty }},{{ bootloader_serial_console_speed }}n8'
-bootloader_serial_command: '{{ "".join(["serial --speed=", bootloader_serial_console_speed, " --unit=0 --word=8 --parity=no --stop=1"]) if bootloader_serial_console else "" }}'
-bootloader_kernel_parameters_console: '{{ [ "console=tty0", bootloader_serial_console_parameter ] if bootloader_serial_console else [] }}'
+bootloader_serial_command: '{{ "".join(["serial --speed=", bootloader_serial_console_speed, " --unit=", bootloader_serial_console_tty_num, " --word=8 --parity=no --stop=1"]) if bootloader_serial_console else "" }}'
+bootloader_kernel_parameters_console: '{{ [ "".join(["console=tty", bootloader_serial_console_tty_num]), bootloader_serial_console_parameter ] if bootloader_serial_console else [] }}'
 
 # kernel parameters to be set from roles
 bootloader_kernel_parameters_hugepages: []
