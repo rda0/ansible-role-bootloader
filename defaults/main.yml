@@ -2,6 +2,10 @@ role_bootloader: True
 include_bootloader_grub: True
 include_bootloader_extlinux: True
 
+# destructive options
+bootloader_extlinux_remove_grub: False
+bootloader_extlinux_install_to_bootsector: False
+
 # enable serial console (for grub and kernel)
 bootloader_serial_console: True
 

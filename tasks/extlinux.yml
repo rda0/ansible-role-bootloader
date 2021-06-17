@@ -1,5 +1,32 @@
+- name: gather package facts
+  package_facts:
+    manager: auto
+
+- name: remove grub
+  package:
+    state: absent
+    pkg:
+      - grub-common
+      - grub-pc
+      - grub-pc-bin
+      - grub2-common
+  when: bootloader_extlinux_remove_grub
+
+- name: check if grub is installed
+  fail:
+    msg: "some version of grub installed alongside extlinux!"
+  when: "'grub-common' in ansible_facts.packages or 'grub-pc' in ansible_facts.packages or 'grub-pc-bin' in ansible_facts.packages or 'grub2-common' in ansible_facts.packages"
+
+- name: install extlinux
+  package:
+    pkg: extlinux
+
 - name: deploy extlinux (syslinux) config
   template:
     src: syslinux.cfg.j2
     dest: /syslinux.cfg
     mode: 0644
+
+- name: install extlinux bootloader to bootsector
+  command: 'extlinux --install /'
+  when: bootloader_extlinux_install_to_bootsector
