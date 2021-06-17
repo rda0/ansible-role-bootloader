@@ -9,9 +9,9 @@
 
     - name: include grub
       include_tasks: grub.yml
-      tags: bootloader_grub
       when: bootloader_grub_stat_result.stat.exists
 
+    tags: bootloader_grub
     when: include_bootloader_grub
 
   - block:
@@ -23,9 +23,9 @@
 
     - name: include extlinux (syslinux)
       include_tasks: extlinux.yml
-      tags: bootloader_extlinux
       when: bootloader_extlinux_stat_result.stat.exists
 
+    tags: bootloader_extlinux
     when: include_bootloader_extlinux
 
   tags: bootloader
