@@ -8,6 +8,16 @@ The following bootloaders are supported and auto-detected:
 - `grub2`: enabled when `/etc/default/grub` is present
 - `extlinux` (syslinux): enabled when `/syslinux.cfg` is present
 
+extlinux
+--------
+
+If it detects `extlinux`, it will check if `grub2` is installed alongside and show a warning.
+
+This bootloader has two optional parameters (default = `False`):
+
+- `bootloader_extlinux_remove_grub`: Remove grub
+- `bootloader_extlinux_install_to_bootsector`: Install extlinux to the bootsector of `/`
+
 custom host/group based inventory parameters
 --------------------------------------------
 
