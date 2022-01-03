@@ -47,8 +47,3 @@ The scheduler parameter `elevator=noop` is intentionally not included in the def
 The special kernel parameter for grub `lvmwait=/dev/vg0/root` is not included by default. This parameter should not be required for future installations. It can only have an effect, if the disk where the `grub.cfg` is located, is on an lvm volume. This parameter was required for some old Kernels.
 
 All KVM virtual machines (except some exceptions) are using the `extlinux` bootlaoder, which is already configured in the defaults.
-
-todo
-----
-
-- remove temporary workaround for bionic (`10_linux`)
