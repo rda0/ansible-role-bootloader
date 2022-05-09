@@ -42,7 +42,7 @@ The variable defaults in `defaults/main.yml` are tailor made for the `production
 
 For the `workstations` inventory, these variables are overidden in `group_vars/all/bootloader.yml`. The grub prompt is hidden (to show grub, press `SHIFT` during boot) and password protected.
 
-The scheduler parameter `elevator=noop` is intentionally not included in the default configuration. It should only be included when it makes sense (Areca Controller and Kernel <= 4.19). It is therefore set via `host_vars`. I think in the future, we should aim for configuring the io scheduler via udev rules, because the newer multiqueue schedulers `mq_*`, cannot anymore be configured via kernel parameters. For an example see `inventories/production/host_vars/phd-web/base.yml` where the io scheduler must be set due to Areca Controller sending the wrong disk information to the Kernel.
+The scheduler parameter `elevator=noop` is intentionally not included in the default configuration. It should only be included when it makes sense (Areca Controller and Kernel <= 4.19). It is therefore set via `host_vars`. I think in the future, we should aim for configuring the io scheduler via udev rules, because the newer multiqueue schedulers `mq_*`, cannot anymore be configured via kernel parameters. For an example see `inventories/production/host_vars/phd-hv04/base.yml` where the io scheduler must be set due to Areca Controller sending the wrong disk information to the Kernel.
 
 The special kernel parameter for grub `lvmwait=/dev/vg0/root` is not included by default. This parameter should not be required for future installations. It can only have an effect, if the disk where the `grub.cfg` is located, is on an lvm volume. This parameter was required for some old Kernels.
 
