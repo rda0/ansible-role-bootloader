@@ -1,6 +1,8 @@
-- block:
+- name: tags-block
+  block:
 
-  - block:
+  - name: tags-block
+    block:
 
     - name: detect grub bootloader
       stat:
@@ -14,7 +16,8 @@
     tags: bootloader_grub
     when: include_bootloader_grub
 
-  - block:
+  - name: tags-block
+    block:
 
     - name: detect extlinux (syslinux) bootloader
       stat:
