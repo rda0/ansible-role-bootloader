@@ -53,6 +53,10 @@ bootloader_xen_kernel_parameters_custom: []
 # --- /etc/default/grub -- see https://www.gnu.org/software/grub/manual/grub/html_node/Simple-configuration.html
 bootloader_grub_default: 0
 bootloader_grub_timeout: 5
+# workaround for grub bug where timeout and menu_style has no effect on efi platform
+# it incorrectly sets the timeout to GRUB_RECORDFAIL_TIMEOUT (default: 30)
+# instead of GRUB_TIMEOUT in /etc/grub.d/00_header
+bootloader_grub_recordfail_timeout: 5
 bootloader_grub_timeout_style_hidden: False
 bootloader_grub_distributor: '`lsb_release -i -s 2> /dev/null || echo Debian`'
 bootloader_grub_cmdline_linux_default: ''
