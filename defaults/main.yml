@@ -29,6 +29,7 @@ bootloader_kernel_parameters_custom: []
 bootloader_grub_kernel_parameters_generic: []
 
 # generic extlinux kernel parameters (the default parameters)
+bootloader_extlinux_check_grub_installed: True
 bootloader_extlinux_kernel_parameters_generic:
   - "root={{ ansible_cmdline['root'] }}"
   - 'ro'

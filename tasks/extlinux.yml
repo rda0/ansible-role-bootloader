@@ -15,7 +15,9 @@
 - name: check if grub is installed
   fail:
     msg: "some version of grub installed alongside extlinux!"
-  when: "'grub-common' in ansible_facts.packages or 'grub-pc' in ansible_facts.packages or 'grub-pc-bin' in ansible_facts.packages or 'grub2-common' in ansible_facts.packages"
+  when:
+    - bootloader_extlinux_check_grub_installed
+    - "'grub-common' in ansible_facts.packages or 'grub-pc' in ansible_facts.packages or 'grub-pc-bin' in ansible_facts.packages or 'grub2-common' in ansible_facts.packages"
 
 - name: install extlinux
   package:
