@@ -2,7 +2,7 @@
   template:
     src: grub.j2
     dest: /etc/default/grub
-    mode: 0644
+    mode: '0644'
   notify: update grub
 
 - name: make grub entries unrestricted
@@ -16,7 +16,7 @@
   template:
     src: 50_password.j2
     dest: /etc/grub.d/50_password
-    mode: 0700
+    mode: '0700'
   notify: update grub
   no_log: True
   when: bootloader_grub_password_protected
