@@ -9,7 +9,9 @@
   lineinfile:
     path: /etc/grub.d/10_linux
     regexp: '^CLASS='
+    # TODO: adapt to append the additional option to value already present in file
     line: 'CLASS="--class gnu-linux --class gnu --class os --unrestricted"'
+  # TODO: add task or modify to revert change from this task when bootloader_grub_password_protected is False
   when: bootloader_grub_password_protected
 
 - name: deploy grub password
