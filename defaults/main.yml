@@ -31,7 +31,7 @@ bootloader_grub_kernel_parameters_generic: []
 # generic extlinux kernel parameters (the default parameters)
 bootloader_extlinux_check_grub_installed: True
 bootloader_extlinux_kernel_parameters_generic:
-  - "root={{ ansible_cmdline['root'] }}"
+  - "root={{ ansible_facts.cmdline.root }}"
   - 'ro'
   - 'net.ifnames=0'
   - 'biosdevname=0'
@@ -70,6 +70,6 @@ bootloader_grub_password_protected: False
 
 # --- /syslinux.cfg
 bootloader_extlinux_symlink_in_boot_releases: []
-bootloader_extlinux_path: '{{ "boot/" if ansible_distribution_release in bootloader_extlinux_symlink_in_boot_releases else "" }}'
+bootloader_extlinux_path: '{{ "boot/" if ansible_facts.distribution_release in bootloader_extlinux_symlink_in_boot_releases else "" }}'
 bootloader_extlinux_linux: '{{ bootloader_extlinux_path }}vmlinuz'
 bootloader_extlinux_initrd: '{{ bootloader_extlinux_path }}initrd.img'
