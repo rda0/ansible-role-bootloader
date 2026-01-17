@@ -3,30 +3,30 @@
   when: role_bootloader
   block:
 
-  - name: tags-block
-    tags: bootloader_grub
-    when: include_bootloader_grub
-    block:
+    - name: tags-block
+      tags: bootloader_grub
+      when: include_bootloader_grub
+      block:
 
-    - name: detect grub bootloader
-      stat:
-        path: /etc/default/grub
-      register: bootloader_grub_stat_result
+        - name: detect grub bootloader
+          stat:
+            path: /etc/default/grub
+          register: bootloader_grub_stat_result
 
-    - name: include grub
-      include_tasks: grub.yml
-      when: bootloader_grub_stat_result.stat.exists
+        - name: include grub
+          include_tasks: grub.yml
+          when: bootloader_grub_stat_result.stat.exists
 
-  - name: tags-block
-    tags: bootloader_extlinux
-    when: include_bootloader_extlinux
-    block:
+    - name: tags-block
+      tags: bootloader_extlinux
+      when: include_bootloader_extlinux
+      block:
 
-    - name: detect extlinux (syslinux) bootloader
-      stat:
-        path: /syslinux.cfg
-      register: bootloader_extlinux_stat_result
+        - name: detect extlinux (syslinux) bootloader
+          stat:
+            path: /syslinux.cfg
+          register: bootloader_extlinux_stat_result
 
-    - name: include extlinux (syslinux)
-      include_tasks: extlinux.yml
-      when: bootloader_extlinux_stat_result.stat.exists
+        - name: include extlinux (syslinux)
+          include_tasks: extlinux.yml
+          when: bootloader_extlinux_stat_result.stat.exists
